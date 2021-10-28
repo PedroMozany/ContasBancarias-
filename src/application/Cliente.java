@@ -1,66 +1,71 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
+
 
 public class Cliente {
-	public static String[] nome;
-	private static int[] cpf;
-	private static char[] dados;
+
+	static Random sorteio = new Random();
+
+	String nome, data;
+
+	int cpf;
+
+	int quantosDados, quantasNotas;
+
+	int operação, saldo, nunConta;
+
+	public Cliente(int indeficação) {
+		cpf = indeficação;
+	}
 
 	public Cliente() {
-
-	}
-
-	public static String[] getNome() {
-		return nome;
-	}
-
-	public static void setNome(String[] nome) {
-		Cliente.nome = nome;
-	}
-
-	public static int[] getCpf() {
-		return cpf;
-	}
-
-	public static void setCpf(int[] cpf) {
-		Cliente.cpf = cpf;
-	}
-
-	public static char[] getDados() {
-		return dados;
-	}
-
-	public static void setDados(char[] dados) {
-		Cliente.dados = dados;
+		cpf = sorteio.nextInt(999_999_999 - 99);
 	}
 
 	/**
-	 * @param arquivo
-	 * METODO DE LEITURA PARA LER OS DADOS DE UM ARQUIVO QUE VAI
-	 * CONTER DADOS DO CLIENTE, NUMEROD DE OPERAÇÃO, NUMERO DE CONTA É  DATA,
+	 * relizando a contrução da conta somente com dados do arquivo disponibilizado
+	 * no canvas
+	 * 
+	 * @param linha vai ler dos lementos separando por ";"
 	 */
-	public static void lerDados(String arquivo) {
+	public Cliente(String linha) {
+
+		String[] dadosCliente = linha.split(";");
+		nunConta = Integer.parseInt(dadosCliente[0]);
+		operação = Integer.parseInt(dadosCliente[1]);
+		saldo = Integer.parseInt(dadosCliente[2]);
+		data = dadosCliente[3];
+
+	}
+
+	/**
+	 * @param arquivo METODO DE LEITURA PARA LER OS DADOS DE UM ARQUIVO QUE VAI
+	 *                CONTER DADOS DO CLIENTE, NUMEROD DE OPERAÇÃO, NUMERO DE CONTA
+	 *                É DATA,
+	 */
+	static Lista lerDadosParaLista(String arquivo) throws FileNotFoundException {
+
+		Lista contas = new Lista();
 
 		try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
-			String linhas = br.readLine();
-			dados = linhas.toCharArray();
-			while (linhas != null) {
-				dados = linhas.toCharArray();
-				for (int i = 0; i < linhas.length(); i++) {
-					System.out.print(dados[i]);
-				}
-				System.out.println();
-				linhas = br.readLine();
+			String linha = br.readLine();
 
+			while (linha != null) {
+				Cliente quem = new Cliente(linha);
+				contas.inserirPorUltimo(quem);
+				linha = br.readLine();
 			}
 
-		} catch (IOException exc) {
-			System.out.println("Erro  na leitura do arquivo" + exc.getMessage());
-		}
+		} catch (IOException exe) {
+			System.out.println("Erro: " + exe.getMessage());
 
+		}
+		return contas;
 	}
 
 }
