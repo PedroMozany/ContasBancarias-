@@ -4,7 +4,7 @@ public class Lista {
 	
 	
     public ElementoCliente primeiro, ultimo;
-	
+	//Construtor
     /**
      * Cria uma lista simplesmente encadeada vazia, com sentinela
      * 
@@ -15,14 +15,14 @@ public class Lista {
     }
 
     /** vai verificar se a lista esta vazia 
-     * @return se condição ter verdadeira vai retornar lista vazia 
+     * @return se condiï¿½ï¿½o ter verdadeira vai retornar lista vazia 
      */
     public boolean listaVazia(){
         return (primeiro == ultimo);
     }
 
     /**
-     * vai preencher na ultimo posição 
+     * vai preencher na ultimo posiï¿½ï¿½o 
      * @param quem vai  amazenar a conta  
      */
     public void inserirPorUltimo(Cliente quem){
@@ -34,7 +34,7 @@ public class Lista {
  
   
     /**
-     * vai retorna dados que esta na lista conforme formadação 
+     * vai retorna dados que esta na lista conforme formadaï¿½ï¿½o 
      * @return lista preenchida ou vazia 
      */
     public String imprimir(){
@@ -42,10 +42,10 @@ public class Lista {
             return "LISTA VAZIA!!!";
 
         StringBuilder sb = new StringBuilder("LISTA: \n");
-        sb.append("CONTA" + " " + "OPERAÇÃO" + " " + "SALDO" + "       "+ "DATA \n");
+        sb.append("CONTA" + " " + "OPERAï¿½ï¿½O" + " " + "SALDO" + "       "+ "DATA \n");
         ElementoCliente aux = primeiro.proximo;
         while(aux != null){
-            sb.append(aux.dadosCliente.nunConta+ "      "+aux.dadosCliente.operação+ "    " + aux.dadosCliente.saldo + "      " + aux.dadosCliente.data +"\n");
+            sb.append(aux.dadosCliente.nunConta+ "      "+aux.dadosCliente.operaï¿½ï¿½o+ "    " + aux.dadosCliente.saldo + "      " + aux.dadosCliente.data +"\n");
             aux = aux.proximo;   
         }
         sb.append("Acabou!!");

@@ -7,7 +7,7 @@ public class ElementoCliente {
     
     /**
      * elemento sentinela 
-     * @param quem
+     * @param quem Cliente
      */
     public ElementoCliente(Cliente quem){
         dadosCliente = quem;

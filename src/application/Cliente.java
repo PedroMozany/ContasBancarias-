@@ -9,44 +9,45 @@ import java.util.Random;
 
 public class Cliente {
 
+	//Atributos
 	static Random sorteio = new Random();
-
 	String nome, data;
+	int cpf, quantosDados, quantasNotas,operacao, saldo, nunConta;
 
-	int cpf;
-
-	int quantosDados, quantasNotas;
-
-	int operação, saldo, nunConta;
-
-	public Cliente(int indeficação) {
-		cpf = indeficação;
+	//Construtores
+	/**
+	 * @param indeficacao CPF do cliente
+	 */
+	public Cliente(int indeficacao) {
+		this.cpf = indeficacao;
 	}
-
+	/**
+	 * CPF do cliente gerado automaticamente
+	 */
 	public Cliente() {
 		cpf = sorteio.nextInt(999_999_999 - 99);
 	}
 
 	/**
-	 * relizando a contrução da conta somente com dados do arquivo disponibilizado
+	 * realizando a contrucao da conta somente com dados do arquivo disponibilizado
 	 * no canvas
 	 * 
-	 * @param linha vai ler dos lementos separando por ";"
+	 * @param linha vai ler dos lementos separando por ";".
 	 */
 	public Cliente(String linha) {
 
 		String[] dadosCliente = linha.split(";");
-		nunConta = Integer.parseInt(dadosCliente[0]);
-		operação = Integer.parseInt(dadosCliente[1]);
-		saldo = Integer.parseInt(dadosCliente[2]);
-		data = dadosCliente[3];
+		this.nunConta = Integer.parseInt(dadosCliente[0]);
+		this.operacao = Integer.parseInt(dadosCliente[1]);
+		this.saldo = Integer.parseInt(dadosCliente[2]);
+		this.data = dadosCliente[3];
 
 	}
 
 	/**
 	 * @param arquivo METODO DE LEITURA PARA LER OS DADOS DE UM ARQUIVO QUE VAI
-	 *                CONTER DADOS DO CLIENTE, NUMEROD DE OPERAÇÃO, NUMERO DE CONTA
-	 *                É DATA,
+	 *                CONTER DADOS DO CLIENTE, NUMEROD DE OPERACAO, NUMERO DE CONTA
+	 *                ï¿½ DATA,
 	 */
 	static Lista lerDadosParaLista(String arquivo) throws FileNotFoundException {
 
