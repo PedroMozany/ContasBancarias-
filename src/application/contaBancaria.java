@@ -33,7 +33,7 @@ public class contaBancaria {
 	 * realizando a contrucao da conta somente com dados do arquivo disponibilizado
 	 * no canvas
 	 * 
-	 * @param linha vai ler dos lementos separando por ";".
+	 * @param linha vai ler dos elementos separando por ";".
 	 */
 	public void lerdadosOperacao(String arquivo) throws FileNotFoundException {
 		try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
@@ -99,6 +99,12 @@ public class contaBancaria {
 	public fila_dinamic<operacao> getFilaOperacao() {
 		return this.filaOperacao;
 	}
+	public fila_dinamic<conta> getFilaconta(){
+		return this.filaConta;
+	}
+	public fila_dinamic<Cliente> getFilaCliente(){
+		return this.filaCliente;
+	}
 	public Cliente getCliente() {
 		return this.pessoa;
 	}
@@ -108,5 +114,7 @@ public class contaBancaria {
 	public operacao getOperacao() {
 		return this.operacao;
 	}
+
+	
 	
 }
