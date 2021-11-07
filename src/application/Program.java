@@ -13,9 +13,10 @@ public class Program {
 		System.out.println("Digite o caminho do arquivo: ");
 		String arquivo = sc.nextLine();
 		
-		Lista contas = Cliente.lerDadosParaLista(arquivo);
-		 
-		 System.out.println(contas.imprimir());
+		System.out.println(arquivo);
+		contaBancaria contas = new contaBancaria();
+		contas.lerdadosOperacao(arquivo);
+		System.out.println(contas.getFilaOperacao().displayFila());
 		
 		sc.close();
 

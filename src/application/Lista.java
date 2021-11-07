@@ -37,19 +37,19 @@ public class Lista {
      * vai retorna dados que esta na lista conforme formadaï¿½ï¿½o 
      * @return lista preenchida ou vazia 
      */
-    public String imprimir(){
-        if(listaVazia())
-            return "LISTA VAZIA!!!";
-
-        StringBuilder sb = new StringBuilder("LISTA: \n");
-        sb.append("CONTA" + " " + "OPERAï¿½ï¿½O" + " " + "SALDO" + "       "+ "DATA \n");
-        ElementoCliente aux = primeiro.proximo;
-        while(aux != null){
-            sb.append(aux.dadosCliente.nunConta+ "      "+aux.dadosCliente.operaï¿½ï¿½o+ "    " + aux.dadosCliente.saldo + "      " + aux.dadosCliente.data +"\n");
-            aux = aux.proximo;   
-        }
-        sb.append("Acabou!!");
-        return sb.toString();
-    }
+    //public String imprimir(){
+    //    if(listaVazia())
+    //        return "LISTA VAZIA!!!";
+    //
+    //    StringBuilder sb = new StringBuilder("LISTA: \n");
+    //    sb.append("CONTA" + " " + "OPERAÇÃO" + " " + "SALDO" + "       "+ "DATA \n");
+    //    ElementoCliente aux = primeiro.proximo;
+    //    while(aux != null){
+    //        sb.append(aux.dadosCliente.nunConta+ "      "+aux.dadosCliente.operacao+ "    " + aux.dadosCliente.saldo + "      " + aux.dadosCliente.data +"\n");
+    //        aux = aux.proximo;   
+    //    }
+    //    sb.append("Acabou!!");
+    //    return sb.toString();
+    //}
 
 }
