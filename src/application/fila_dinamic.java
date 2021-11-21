@@ -34,8 +34,11 @@ public class fila_dinamic<T> {
 	}
 	@SuppressWarnings("unchecked")
 	public void invert(){
+		@SuppressWarnings("rawtypes")
 		element<element, T> next = null;
+		@SuppressWarnings("rawtypes")
 		element<element, T> last = null;
+		@SuppressWarnings("rawtypes")
 		element<element, T> current = this.first;
 		while(current != null) {
 	        next = current.getNext();
